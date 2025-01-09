@@ -6,6 +6,7 @@ import axiosInstance from "../../../lib/interceptors";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
+  const token = localStorage.getItem("token");
 
   const handleLogout = async () => {
     try {
@@ -20,7 +21,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="p-4 flex justify-end">
-      <Button onClick={handleLogout}>Logout</Button>
+      {token && <Button onClick={handleLogout}>Logout</Button>}
     </nav>
   );
 };
