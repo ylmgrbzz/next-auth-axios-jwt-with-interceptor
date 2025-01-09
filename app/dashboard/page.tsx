@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../lib/interceptors";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const DashboardPage = () => {
   const [users, setUsers] = useState([]);
@@ -31,17 +32,19 @@ const DashboardPage = () => {
   }
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-      <h2 className="text-xl font-semibold mb-4">Users</h2>
-      <ul>
-        {users.map((user: any) => (
-          <li key={user._id} className="mb-2">
-            {user.username}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ProtectedRoute redirectTo="/">
+      <div className="p-8">
+        <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
+        <h2 className="text-xl font-semibold mb-4">Users</h2>
+        <ul>
+          {users.map((user: any) => (
+            <li key={user._id} className="mb-2">
+              {user.username}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </ProtectedRoute>
   );
 };
 

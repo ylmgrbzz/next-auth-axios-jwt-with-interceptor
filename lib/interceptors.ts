@@ -24,11 +24,6 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response && error.response.status === 401) {
-      localStorage.removeItem("token");
-      window.dispatchEvent(new Event("unauthorized"));
-      window.location.href = "/";
-    }
     return Promise.reject(error);
   }
 );

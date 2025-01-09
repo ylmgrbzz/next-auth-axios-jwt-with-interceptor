@@ -11,37 +11,6 @@ const SignupForm: React.FC = () => {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  useEffect(() => {
-    const handleUnauthorized = () => {
-      router.push("/");
-    };
-
-    window.addEventListener("unauthorized", handleUnauthorized);
-
-    return () => {
-      window.removeEventListener("unauthorized", handleUnauthorized);
-    };
-  }, [router]);
-
-  useEffect(() => {
-    const checkToken = () => {
-      const token = localStorage.getItem("token");
-      if (token) {
-        const isExpired = isTokenExpired(token);
-        if (isExpired) {
-          localStorage.removeItem("token");
-          window.dispatchEvent(new Event("unauthorized"));
-          router.push("/");
-        }
-      }
-    };
-
-    checkToken();
-    const intervalId = setInterval(checkToken, 180000); // Check every 3 minutes
-
-    return () => clearInterval(intervalId);
-  }, [router]);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");

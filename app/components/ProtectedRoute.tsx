@@ -22,7 +22,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
         localStorage.removeItem("token");
         router.push(redirectTo);
       } else {
-        router.push("/dashboard");
+        router.replace("/dashboard");
       }
     }
   }, [router, redirectTo]);
