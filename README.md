@@ -1,6 +1,6 @@
-# Interceptor Projesi
+# Next.js Authentication with JWT and Axios Interceptors
 
-Bu proje, Next.js kullanılarak oluşturulmuş bir kimlik doğrulama (authentication) ve yetkilendirme (authorization) sistemini temel alan bir uygulamadır. Proje, kullanıcıların kayıt olmasını, giriş yapmasını ve yetkilendirilmiş kaynaklara erişmesini sağlar. Ayrıca, Axios interceptor'ları kullanılarak API isteklerine otomatik olarak token eklenmesi ve yetkisiz erişim durumunda kullanıcıların yönlendirilmesi gibi özellikler de içermektedir.
+Bu proje, Next.js kullanarak basit bir kimlik doğrulama sistemini uygulamaktadır. Kullanıcılar kayıt olabilir, giriş yapabilir ve JWT tabanlı kimlik doğrulama ile güvenli bir şekilde oturum açabilirler.
 
 ## Özellikler
 
@@ -11,14 +11,25 @@ Bu proje, Next.js kullanılarak oluşturulmuş bir kimlik doğrulama (authentica
 - **Next.js API Routes:** Backend işlemleri için Next.js API routes kullanılır.
 - **Özel Alias'lar:** `@` alias'ı kullanılarak import işlemleri kolaylaştırılmıştır.
 - **Client Component'ler:** React hook'ları kullanılan component'ler client component olarak işaretlenmiştir.
+- **Protected Routes:** Giriş yapmamış kullanıcıların belirli sayfalara erişimi engellenir.
+- **Token Süresi Kontrolü:** JWT token'larının süresi kontrol edilir ve süresi dolan token'lar silinir.
+- **Logout İşlemi:** Kullanıcılar güvenli bir şekilde çıkış yapabilirler.
+- **Giriş Yapmış Kullanıcıların Login/Signup Sayfalarına Erişimi Engellenir:** Giriş yapmış kullanıcılar, login ve signup sayfalarına erişemezler.
+- **Dashboard Sayfası:** Giriş yapmış kullanıcılar için özel bir dashboard sayfası bulunur.
+- **Hata Yönetimi:** Yanlış giriş bilgileri durumunda kullanıcıya hata mesajı gösterilir.
 
 ## Teknolojiler
 
-- **Next.js:** React tabanlı bir web framework'ü.
-- **React:** Kullanıcı arayüzleri oluşturmak için kullanılan bir JavaScript kütüphanesi.
-- **TypeScript:** JavaScript'e statik tip kontrolü ekleyen bir dil.
-- **MongoDB:** NoSQL veritabanı.
-- **Axios:** HTTP istekleri yapmak için kullanılan bir kütüphane.
-- **bcryptjs:** Şifreleri hashlemek için kullanılan bir kütüphane.
-- **jsonwebtoken:** JWT oluşturmak ve doğrulamak için kullanılan bir kütüphane.
-- **Tailwind CSS:** CSS framework'ü.
+- Next.js
+- React
+- TypeScript
+- MongoDB
+- bcryptjs
+- jsonwebtoken
+- axios
+- Tailwind CSS
+
+- Projede kullanılan JWT token'larının süresi 3 dakikadır.
+- Giriş yapmış kullanıcılar, dashboard sayfasına yönlendirilir ve geri tuşuyla dashboard'dan çıkış yapamazlar.
+- Logout butonu sadece giriş yapıldığında dashboard sayfasında görünür.
+- Yanlış giriş bilgileri durumunda kullanıcıya hata mesajı gösterilir ve sayfa yenilenmez.
