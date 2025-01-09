@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Interceptor Projesi
 
-## Getting Started
+Bu proje, Next.js kullanılarak oluşturulmuş bir kimlik doğrulama (authentication) ve yetkilendirme (authorization) sistemini temel alan bir uygulamadır. Proje, kullanıcıların kayıt olmasını, giriş yapmasını ve yetkilendirilmiş kaynaklara erişmesini sağlar. Ayrıca, Axios interceptor'ları kullanılarak API isteklerine otomatik olarak token eklenmesi ve yetkisiz erişim durumunda kullanıcıların yönlendirilmesi gibi özellikler de içermektedir.
 
-First, run the development server:
+## Özellikler
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Kullanıcı Kayıt ve Giriş:** Kullanıcılar, güvenli bir şekilde kayıt olabilir ve giriş yapabilirler.
+- **JWT Tabanlı Kimlik Doğrulama:** JSON Web Token (JWT) kullanılarak kullanıcıların kimlikleri doğrulanır.
+- **Axios Interceptor'ları:** API isteklerine otomatik olarak JWT token'ı eklenir ve yetkisiz erişim durumunda kullanıcılar yönlendirilir.
+- **MongoDB Entegrasyonu:** Kullanıcı verileri MongoDB veritabanında saklanır.
+- **Next.js API Routes:** Backend işlemleri için Next.js API routes kullanılır.
+- **Özel Alias'lar:** `@` alias'ı kullanılarak import işlemleri kolaylaştırılmıştır.
+- **Client Component'ler:** React hook'ları kullanılan component'ler client component olarak işaretlenmiştir.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Teknolojiler
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js:** React tabanlı bir web framework'ü.
+- **React:** Kullanıcı arayüzleri oluşturmak için kullanılan bir JavaScript kütüphanesi.
+- **TypeScript:** JavaScript'e statik tip kontrolü ekleyen bir dil.
+- **MongoDB:** NoSQL veritabanı.
+- **Axios:** HTTP istekleri yapmak için kullanılan bir kütüphane.
+- **bcryptjs:** Şifreleri hashlemek için kullanılan bir kütüphane.
+- **jsonwebtoken:** JWT oluşturmak ve doğrulamak için kullanılan bir kütüphane.
+- **Tailwind CSS:** CSS framework'ü.
