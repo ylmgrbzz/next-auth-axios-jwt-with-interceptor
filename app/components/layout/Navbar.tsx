@@ -12,9 +12,11 @@ const Navbar: React.FC = () => {
     const storedToken = localStorage.getItem("token");
     setToken(storedToken);
 
-    const handleStorageChange = () => {
-      const newToken = localStorage.getItem("token");
-      setToken(newToken);
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === "token") {
+        const newToken = localStorage.getItem("token");
+        setToken(newToken);
+      }
     };
 
     window.addEventListener("storage", handleStorageChange);

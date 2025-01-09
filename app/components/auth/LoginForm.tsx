@@ -22,6 +22,7 @@ const LoginForm: React.FC = () => {
       });
       console.log(response.data);
       localStorage.setItem("token", response.data.token);
+      window.dispatchEvent(new StorageEvent("storage", { key: "token" }));
       router.push("/dashboard");
     } catch (err: any) {
       setError(err.response?.data?.message || "Login failed");
