@@ -1,5 +1,4 @@
-import LoginForm from "@/components/auth/LoginForm";
-import SignupForm from "@/components/auth/SignupForm";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -7,14 +6,12 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1 className="text-2xl font-bold">Welcome</h1>
         <div className="flex gap-8">
-          <div className="border p-4 rounded">
-            <h2 className="text-xl font-semibold mb-4">Login</h2>
-            <LoginForm />
-          </div>
-          <div className="border p-4 rounded">
-            <h2 className="text-xl font-semibold mb-4">Signup</h2>
-            <SignupForm />
-          </div>
+          <Link href="/login" className="border p-4 rounded">
+            Login
+          </Link>
+          <Link href="/signup" className="border p-4 rounded">
+            Signup
+          </Link>
         </div>
       </main>
     </div>

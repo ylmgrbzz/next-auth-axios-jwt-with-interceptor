@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../ui/Button";
 import axiosInstance from "../../../lib/interceptors";
 import { useRouter } from "next/navigation";
+import { isTokenExpired } from "../../../lib/auth";
 
 const LoginForm: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -22,6 +23,25 @@ const LoginForm: React.FC = () => {
     };
   }, [router]);
 
+  useEffect(() => {
+    const checkToken = () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const isExpired = isTokenExpired(token);
+        if (isExpired) {
+          localStorage.removeItem("token");
+          window.dispatchEvent(new Event("unauthorized"));
+          router.push("/");
+        }
+      }
+    };
+
+    checkToken();
+    const intervalId = setInterval(checkToken, 180000); // Check every 3 minutes
+
+    return () => clearInterval(intervalId);
+  }, [router]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -33,7 +53,7 @@ const LoginForm: React.FC = () => {
       });
       console.log(response.data);
       localStorage.setItem("token", response.data.token);
-      window.location.href = "/dashboard";
+      router.push("/dashboard");
     } catch (err: any) {
       setError(err.response?.data?.message || "Login failed");
     }
